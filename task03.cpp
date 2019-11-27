@@ -16,104 +16,19 @@
 #include <sstream>
 #include <fstream>  
 
+int data[] = {5,3,7,8,13};
+int i;
+char s[255];
 
-using namespace std;
-int sum = 0;
-int pocet = 0;
-string line;
-string input;
+
+int length(int arr[]) {
+	return sizeof(int);
+}
 
 int main(int argc, char* argv[]) {
-
-	printf("%s", "\n\n-----------------------------------------------------------------------------\n");
-	printf("%s", "| -f    --->   ?should print sum of numbers in data.txt is 13?              |\n");
-	printf("%s", "| -v    --->   should print sum of 4 arguments is 23                        |\n");
-	printf("%s", "| -v -f --->   ?same result?                                                |\n");
-	printf("%s", "| -v -i --->   should print like sum of 7 numbers from standard input is 38 |\n");
-	printf("%s", "-----------------------------------------------------------------------------\n");
-
-	cin >> input;
-
-	if (input == "-f")
-	{
-		printf("%s", "Zadejte hodnoty:\n");
-		while (getline(cin, line))
-		{
-			stringstream ss(line);
-			int tmp;
-
-			if (ss >> tmp)
-			{
-				sum += tmp;
-				pocet++;
-			}
-			else
-			{
-				break;
-			}
-			}
-		std::ofstream outfile("data.txt");
-		outfile << sum << std::endl;
-		outfile.close();
-		cout << "\nSum of numbers is in data.txt --> " << sum << "\n\n";
+	int sum = 0;
+	for (int i = 1; argv[i]; ++i) {
+		sum += atoi(argv[i]);
 	}
-	else if(input == "-v")
-	{
-		while (getline(cin, line))
-		{
-			stringstream ss(line);
-			int tmp;
-
-			if (ss >> tmp)
-			{
-				sum += tmp;
-				pocet++;
-			}
-			else
-			{
-				break;
-			}
-		}
-		cout << "\nSum of " << pocet << " arguments is " << sum << "\n\n";
-	}
-
-	else if (input == "-v -f")
-	{
-		while (getline(cin, line))
-		{
-			stringstream ss(line);
-			int tmp;
-
-			if (ss >> tmp)
-			{
-				sum += tmp;
-				pocet++;
-			}
-			else
-			{
-				break;
-			}
-		}
-		cout << "\nSame result\n\n";
-	}
-
-	else if(input == "-v -i")
-	{
-		while (getline(cin, line))
-		{
-			stringstream ss(line);
-			int tmp;
-
-			if (ss >> tmp)
-			{
-				sum += tmp;
-				pocet++;
-			}
-			else
-			{
-				break;
-			}
-		}
-		cout << "\nSum of " << pocet << " numbers from standard input is " << sum << "\n\n";
-	}
+	std::cout << "\nSum of " << sizeof(int) << " numbers from standard input is " << sum << "\n\n";
 }
