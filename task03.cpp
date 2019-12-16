@@ -55,30 +55,25 @@ void readFile(int argv[]) {
 }
 
 int main(int argc, char* argv[]) {
-	//	}
-// task03 - f data.txt - v
 	int pos;
 	if (argc > 1) {
-		if (pos = hasArg('f', argc, argv)) {
-			std::cout << "\nSum of numbers in " << argv[pos] << " is " << result(argc, argv) << "\n\n";
+		pos = hasArg('f', argc, argv);
+		if (pos > 0) {
+			std::cout << "\nSum of numbers in " << argv[1] << " is " << result(argc, argv) << "\n\n";
 		}
-
-		else if (pos = hasArg('v', argc, argv)) {
-			// task03 -v -f data.txt
-			if (pos = hasArg('f', argc, argv)) {
+		pos = hasArg('v', argc, argv);
+		if (pos > 0) {
+			pos = hasArg('f', argc, argv);
+			if (pos > 0) {
 				std::cout << "\nSum of numbers in " << argv[3] << " is " << result(argc, argv) << "\n\n";
 			}
-			// task03 -v -i 
-			else if (pos = hasArg('i', argc, argv)) {
+			pos = hasArg('i', argc, argv);
+			if (pos > 0) {
 				std::cout << "\nSum of " << sizeof(int) << " numbers from standard input is " << result(argc, argv) << "\n\n";
 			}
-			// task03 -v 13 4 
 			else {
 				std::cout << "\nSum of " << sizeof(int) << " arguments is " << result(argc, argv) << "\n\n";
 			}
-		}
-		else {
-			std::cout << "\nSum of " << sizeof(int) << " arguments is " << result(argc, argv) << "\n\n";
 		}
 	}
 	else {
