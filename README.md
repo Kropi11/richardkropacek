@@ -13,4 +13,5 @@ Bitové posuny:
 `byte x`: horní 4 bity: `x>>4`, dolní 4 bity `x & 0xF`
 
 ## task03
-Program nedává smysl, něco jste špatně zkopíroval
+Nahrál jsem poslední verzi mého programu na Task03, bohužel mám problém s tím, že mi program ignoruje některé IF funkce (zkoušel jsem je i prohazovat, bohužel bez pozitivního výsledku). Tento problém jsem konzultoval se spolužáky, bohužel ani ti nevědí jak se s problémem vypořádat. 
+Děkuji za případný nález chybného kódy v hodině PVA.
