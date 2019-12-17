@@ -44,39 +44,43 @@ int hasArg(char checkChar, int argc, char* argv[]) {
 	return 0;
 }
 
-void readFile(int argv[]) {
-	int n = 0;
-	ifstream myfile("data.txt");
-	for (int i = 0; i < n; i++)
-	{
-		cout << argv[i] << " ";
+int readFile(char* argv[]) {
+	int sum = 0;
+	int number;
+	FILE* fp;
+	errno_t err = fopen_s(&fp, argv[i++], "r");
+	while (true) {
+		if (fscanf_s(fp, "%d", &number) == EOF) {
+			break;
+		}
+		sum += number;
 	}
-	myfile.close();
+	return sum;
 }
 
 int main(int argc, char* argv[]) {
 	int pos;
 	if (argc > 1) {
-		pos = hasArg('f', argc, argv);
-		if (pos > 0) {
-			std::cout << "\nSum of numbers in " << argv[1] << " is " << result(argc, argv) << "\n\n";
-		}
 		pos = hasArg('v', argc, argv);
 		if (pos > 0) {
-			pos = hasArg('f', argc, argv);
-			if (pos > 0) {
-				std::cout << "\nSum of numbers in " << argv[3] << " is " << result(argc, argv) << "\n\n";
-			}
 			pos = hasArg('i', argc, argv);
 			if (pos > 0) {
 				std::cout << "\nSum of " << sizeof(int) << " numbers from standard input is " << result(argc, argv) << "\n\n";
+			}
+			pos = hasArg('f', argc, argv);
+			if (pos > 0) {
+				std::cout << "\nSum of numbers in " << argv[i++] << " is " << result(argc, argv) << "\n\n";
 			}
 			else {
 				std::cout << "\nSum of " << sizeof(int) << " arguments is " << result(argc, argv) << "\n\n";
 			}
 		}
+		pos = hasArg('f', argc, argv);
+		if (pos > 0) {
+			std::cout << "\nSum of numbers in " << argv[i++] << " is " << result(argc, argv) << "\n\n";
+		}
 	}
 	else {
-			printf("%d", result(argc, argv));
+			printf("%s", "Priklad nelze vypocitat.");
 	}
 }
