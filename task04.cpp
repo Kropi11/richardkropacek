@@ -1,27 +1,44 @@
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
 struct Animal {
 	const char* Name;
-	const char* Sound;
+	Animal(const char* Name){
+		this->Name = Name;
+	}
 	virtual const char* whatDoesItSay() {
-		sprintf_s(buffer,"%s dělá %s",Name, Sound);
+		sprintf_s(buffer,"%s says ",Name);
 		return buffer;
 	}
 
 protected:
-	char buffer[48];
+	char buffer[255];
 };
 
 struct Dog : Animal {
-	this.Name;
-	this.Sound;
+	const char* Sound;
+		Dog(const char* Name, const char* Sound) : Animal(Name) {
+		this->Sound = Sound;
+	}
+	const char* whatDoesItSay() {
+		Animal::whatDoesItSay();
+		strcat_s(buffer, Sound);
+		return buffer;
+	}
 };
 
 struct Fox : Animal {
-	this.Name;
-	this.Sound;
+	const char* Sound;
+		Fox(const char* Name, const char* Sound) : Animal(Name) {
+		this->Sound = Sound;
+	}
+	const char* whatDoesItSay() {
+		Animal::whatDoesItSay();
+		strcat_s(buffer, Sound);
+		return buffer;
+	}
 };
 
 int main() {
@@ -30,7 +47,7 @@ int main() {
 	  new Fox("fox", "ringidingidingidingiding")
 	};
 		for (Animal* animal : animals) {
-			animal->whatDoesItSay();
+			puts(animal->whatDoesItSay());
 		}
 	// dog says woof
 	// fox says ringidingidingidingiding
