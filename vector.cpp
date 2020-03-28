@@ -1,24 +1,26 @@
-//Zatím není funkční vkládání vstupu do vectoru, problém se pokusím co nejdříve vyřešit.
 #include <vector>
 #include <string>
 #include <iostream>
 using namespace std;
 
-void print(vector<char> const &input)
-{
-    for (auto const& i: input) {
-        std::cout << i << " ";
-    }
+string input;
+std::vector<string> v;
+
+void PrintVector() {
+	std::cout << "The vector elements are : ";
+
+	for (int i = 0; i < v.size(); i++){
+		std::cout << v.at(i) << ' ';
+	}
 }
+
 int main()
 {
-	string input;
-	vector<char> v;
-
 	cout << "Please, enter your number: " << endl;
-	while(getline(cin,input) && input != "q"){
-	//v.push_back(input);
+	while((cin >> input) && input != "q") {
+	v.push_back(input);
 	}
- 	getchar();
+
+	PrintVector();
 	return 0;
 }
