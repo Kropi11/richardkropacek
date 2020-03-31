@@ -25,6 +25,6 @@ Z [tohoto zdroje](https://en.cppreference.com/w/c/string/byte/strcat)
 ## task05
 Funkční
 ## task06
--
-## Vector
+
+## task07
 Splněno, čeká na kontrolu.
