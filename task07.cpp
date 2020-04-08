@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <cmath>
 
 /*
 	V C++ jsou operátory funkce jako každá jiná.
@@ -18,6 +19,10 @@ public:
 		snprintf(buffer, 15, "[%d,%d]", x, y);
 		return buffer;
 	}
+
+ 	operator double(){
+        return hypot(x,y);
+    }
 };
 
 /*
@@ -41,6 +46,9 @@ public:
 
 	Vector2b operator*(int n) {
 		return Vector2b(n*x, n*y);
+	}
+	Vector2b operator*(Vector2& v){
+		return Vector2b(x*v.x, y*v.y);
 	}
 };
 
